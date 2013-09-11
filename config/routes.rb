@@ -1,4 +1,16 @@
 NinetyNineCats::Application.routes.draw do
+
+  root to: "cats#index"
+
+  resources :cats
+
+  resources :cat_rental_requests, only: [:new, :create] do
+    member do
+      post 'approve'
+      post 'deny'
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

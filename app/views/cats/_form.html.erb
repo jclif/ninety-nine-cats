@@ -1,0 +1,45 @@
+<form action="<%= cat.persisted? ? cat_url(cat) : cats_url %>" method="post">
+  <% if params[:action] == 'edit' %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+
+  <label>
+    Name
+    <input type="text" name="cat[name]" value="<%= cat.name %>">
+  </label>
+
+  <label>
+    <input type="radio" name="cat[sex]" id="cat_sex_female" value="F" <%= checked="checked" if @cat.sex == "F" %> >
+  Female
+  </label>
+
+  <label>
+    <input type="radio" name="cat[sex]" id="cat_sex_male" value="M" <%= checked="checked" if @cat.sex == "M" %> >
+    Male
+  </label>
+
+  <label>
+    Age
+    <input type="text" name="cat[age]" value="<%= cat.age %>">
+  </label>
+
+  <label>
+    Color
+    <select name="cat[color]">
+      <% colors = %w(black white magenta grey green)%>
+      <% colors.each do |color| %>
+        <option value="<%= color %>" <%= selected="selected" if cat.color == color %>>
+          <%= color.capitalize%>
+        </option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    Date
+    <input type="date" name="cat[birth_date]" value="<%= cat.birth_date %>">
+  </label>
+
+  <input type="submit" value="Create cho kitty">
+
+</form>
