@@ -26,6 +26,9 @@
     <td><%= req.start_date %></td>
     <td><%= req.end_date %></td>
     <td><%= req.status %></td>
+  </tr>
+
+  <tr>
     <td>
       <% if req.status == "PENDING" %>
         <%= button_to "Approve", approve_cat_rental_request_url(cat_rental_request: {id: req.id}) %>
@@ -37,5 +40,7 @@
   <% end %>
 </table>
 
-
+<%= button_to "Edit", edit_cat_url(@cat), method: :get%>
+<%= button_to 'Destroy', cat_url(@cat),
+            :confirm => 'Are you sure?', :method => :delete %>
 

@@ -41,7 +41,8 @@ class CatsController < ApplicationController
   end
 
   def destroy
-    @cat.delete(params[:id])
+    Cat.delete(params[:id])
+    redirect_to cats_url
   end
 
 end

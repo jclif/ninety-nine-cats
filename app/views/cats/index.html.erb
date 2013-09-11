@@ -10,7 +10,7 @@
   </tr>
   <% @cats.each do |cat| %>
   <tr>
-    <td><%= cat.name %></td>
+    <td><%= link_to cat.name, cat_url(cat) %></td>
     <td><%= cat.sex %></td>
     <td><%= cat.age %></td>
     <td><%= cat.birth_date %></td>
@@ -19,3 +19,5 @@
   <% end %>
 
 </table>
+
+<%= button_to "Add a new cat", new_cat_url, method: :get %>
