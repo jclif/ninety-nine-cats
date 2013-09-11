@@ -1,6 +1,8 @@
 NinetyNineCats::Application.routes.draw do
 
-  root to: "cats#index"
+  match '/help' => 'static_pages#help'
+
+  root to: "static_pages#home"
 
   resources :cats
 
