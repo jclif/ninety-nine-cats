@@ -30,7 +30,7 @@
 
   <tr>
     <td>
-      <% if req.status == "PENDING" %>
+      <% if req.status == "PENDING" && current_user.id == @cat.user_id %>
         <%= button_to "Approve", approve_cat_rental_request_url(cat_rental_request: {id: req.id}) %>
         <%= button_to "Deny", deny_cat_rental_request_url(cat_rental_request: {id: req.id} )%>
       <% end %>
@@ -39,6 +39,8 @@
   </tr>
   <% end %>
 </table>
+<br>
+<%= button_to "Rent dat cat", new_cat_rental_request_url(@cat), method: :get%>
 <% if current_user.id == @cat.user_id %>
   <%= button_to "Edit", edit_cat_url(@cat), method: :get%>
   <%= button_to 'Destroy', cat_url(@cat),

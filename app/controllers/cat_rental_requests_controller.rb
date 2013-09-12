@@ -1,4 +1,6 @@
 class CatRentalRequestsController < ApplicationController
+  before_filter :not_owner, only: [:approve, :deny]
+
   def new
     @cat_rental_request = CatRentalRequest.new
 
