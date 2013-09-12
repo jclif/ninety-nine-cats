@@ -1,5 +1,8 @@
 TODO
 ====
 
--flash on login (bad credentials)
--update landing page and navigation bar to welcome user if alread signed in
+- flash on login (bad credentials)
+- profile pictures
+- general style
+- logo
+- logging in onto a second device doesn't log you out of the first
