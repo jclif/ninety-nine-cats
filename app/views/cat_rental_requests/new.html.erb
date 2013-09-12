@@ -1,6 +1,11 @@
 <h1>I hear you like to rent cats...</h1>
 
 <form action="<%= cat_rental_requests_url %>" method="post">
+  <input
+       name="authenticity_token"
+       type="hidden"
+       value="<%= form_authenticity_token %>">
+
   <% if params[:action] == 'edit' %>
     <input type="hidden" name="_method" value="PUT">
   <% end %>

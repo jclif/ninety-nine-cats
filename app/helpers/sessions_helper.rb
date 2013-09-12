@@ -24,4 +24,12 @@ module SessionsHelper
     end
   end
 
+  def not_owner
+    redirect_to root_url unless current_user?
+  end
+
+  def current_user?
+    Cat.find(params[:id]).owner.id == current_user.id
+  end
+
 end

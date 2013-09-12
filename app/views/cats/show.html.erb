@@ -39,8 +39,9 @@
   </tr>
   <% end %>
 </table>
-
-<%= button_to "Edit", edit_cat_url(@cat), method: :get%>
-<%= button_to 'Destroy', cat_url(@cat),
-            :confirm => 'Are you sure?', :method => :delete %>
+<% if current_user.id == @cat.user_id %>
+  <%= button_to "Edit", edit_cat_url(@cat), method: :get%>
+  <%= button_to 'Destroy', cat_url(@cat),
+              :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
 
