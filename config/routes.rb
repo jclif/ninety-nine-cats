@@ -13,6 +13,10 @@ NinetyNineCats::Application.routes.draw do
     end
   end
 
+  resources :users, only: [:new, :create]
+
+  resources :session
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
