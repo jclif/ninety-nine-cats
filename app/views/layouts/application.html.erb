@@ -10,6 +10,7 @@
       <![endif]-->
     </head>
     <body>
+      <%= current_user.inspect %>
       <div class="bgImageContainer"></div>
       <div class="content">
       <header class="navbar navbar-fixed-top navbar-inverse">
@@ -20,8 +21,19 @@
               <ul class="nav pull-right">
                 <li><%= link_to "Home",    '/' %></li>
                 <li><%= link_to "Rentable Cats",    '/cats/' %></li>
-                <li><%= link_to "Help",    '/help/' %></li>
-                <li><%= link_to "Sign in", '/' %></li>
+                <% if current_user %>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <%= current_user.user_name %>
+                      <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= button_to "Log out", '/session/', :method => :delete %></li>
+                    </ul>
+                  </li>
+                <% else %>
+                  <li><%= link_to "Sign in", '/session/new' %></li>
+                <% end %>
               </ul>
             </nav>
           </div>
@@ -31,7 +43,7 @@
         <%= yield %>
         <footer class="footer">
           <small>
-            <a href="http://railstutorial.org/">99cats</a>
+            <a href="/">99cats</a>
             by Lots o Cats Inc.
           </small>
           <nav>

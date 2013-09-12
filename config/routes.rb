@@ -15,7 +15,7 @@ NinetyNineCats::Application.routes.draw do
 
   resources :users, only: [:new, :create]
 
-  resources :session
+  resource :session, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

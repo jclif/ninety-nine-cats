@@ -1,11 +1,14 @@
 class CatsController < ApplicationController
   def index
+    @user = self.current_user
     @cats = Cat.all
+
     render :index
   end
 
   def show
     @cat = Cat.find(params[:id])
+
     render :show
   end
 
@@ -27,6 +30,7 @@ class CatsController < ApplicationController
 
   def edit
     @cat = Cat.find(params[:id])
+
     render :edit
   end
 
