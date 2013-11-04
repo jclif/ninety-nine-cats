@@ -1,8 +1,8 @@
 class Cat < ActiveRecord::Base
-  attr_accessible :age, :birth_date, :color, :name, :sex
+  attr_accessible :age, :birth_date, :color, :name, :sex, :user_id
 
   validates :age, numericality: true
-  validates :color, inclusion: { in: %w(black white grey magenta green) }
+  validates :color, inclusion: { in: %w(black white gray magenta green) }
   validates :sex, length: { maximum: 1}, inclusion: { in: %w(M F) }
   validates :sex, :name, presence: true
 

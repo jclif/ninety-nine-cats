@@ -22,3 +22,9 @@
 
   <input type="submit" value="Log in">
 </form>
+<form class="new_user" method="post" action="<%= session_url %>">
+  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token"></input>
+    <input id="user_email" type="hidden" value="Catnapper" size="30" name="user[user_name]"></input>
+    <input id="user_password" type="hidden" value="gimmeyocats" size="30" name="user[password]"></input>
+    <input class="guest-button button button-rounded" type="submit" name="commit" value="Guest Login"></input>
+  </form>

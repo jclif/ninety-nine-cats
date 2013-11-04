@@ -1,5 +1,4 @@
 class CatsController < ApplicationController
-
   before_filter :not_owner, only: [:edit, :update]
 
   def index
